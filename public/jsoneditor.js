@@ -9,7 +9,7 @@ async function initJsonEditor() {
     let schemaList = await getSchemaList();
     schema = schemaList[0];
 
-     employeeList = await getEmployeeList();
+    employeeList = await getEmployeeList();
     // console.log('employeeList', employeeList[0]);
 
     if (employeeList[0]) {
@@ -19,7 +19,6 @@ async function initJsonEditor() {
         schema.properties.salary.default = employeeList[0].salary;
     }
     console.log(schema);
-    console.log(employeeList[0]._id);
 
     element = document.getElementById('myjsoneditor');
 
@@ -30,7 +29,12 @@ async function initJsonEditor() {
 
     $("#save123").click(function () {
         let newEmployee = editor.getValue();
-        updateEmployee(newEmployee, employeeList[0]._id);
+        if (employeeList[0]) {
+            updateEmployee(newEmployee, employeeList[0]._id);
+        }
+        else {
+            saveEmployee(newEmployee);
+        }
     });
 
 

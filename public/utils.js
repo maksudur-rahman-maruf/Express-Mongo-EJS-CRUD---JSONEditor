@@ -27,7 +27,7 @@ function updateEmployee(update, employeeId) {
 
     let url = `employees/update/${employeeId}`;
 
-    console.log('updatedSchema!');
+    console.log('updatedEmployee!');
 
     return fetch(url, {
         method: 'POST',
@@ -35,6 +35,23 @@ function updateEmployee(update, employeeId) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(update)
+    });
+
+   
+}
+
+function saveEmployee(employee) {
+
+    let url = `employees/save`;
+
+    console.log('savedEmployee!');
+
+    return fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(employee)
     });
 
    
