@@ -22,3 +22,20 @@ async function getSchemaList() {
         console.log(e);
     }
 }
+
+function updateEmployee(update, employeeId) {
+
+    let url = `employees/update/${employeeId}`;
+
+    console.log('updatedSchema!');
+
+    return fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(update)
+    });
+
+   
+}
